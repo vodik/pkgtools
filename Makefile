@@ -4,10 +4,11 @@ CFLAGS := -std=c99 \
 	${CFLAGS}
 
 LDLIBS = -larchive -lalpm
-BINS = pkgdump
+BINS = pkgdump pkgelf
 
 all: ${BINS}
 pkgdump: alpm/alpm-metadata.o pkgdump.o
+pkgelf: pkgelf.o
 
 install: pkgdump
 	install -Dm755 pkgdump ${DESTDIR}/usr/bin/pkgdump
